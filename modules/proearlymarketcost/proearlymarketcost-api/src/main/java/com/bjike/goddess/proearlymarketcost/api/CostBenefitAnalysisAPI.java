@@ -37,7 +37,7 @@ public interface CostBenefitAnalysisAPI {
 
     }
 
-    default List<CostBenefitAnalysisBO> collectArea(CostBenefitAnalysisDTO dto)throws SerException{
+    default List<CostBenefitAnalysisBO> collect(CostBenefitAnalysisDTO dto)throws SerException{
         return null;
     }
 

@@ -35,7 +35,7 @@ public interface CostBenefitAnalysisSer extends Ser<CostBenefitAnalysis, CostBen
 
     }
 
-    default List<CostBenefitAnalysisBO> collectArea(CostBenefitAnalysisDTO dto){
+    default List<CostBenefitAnalysisBO> collect(CostBenefitAnalysisDTO dto) throws SerException {
         return null;
     }
 }

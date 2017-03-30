@@ -1,8 +1,3 @@
-//import com.dounine.japi.JapiClient;
-//import com.dounine.japi.JapiClientStorage;
-//import com.dounine.japi.JapiClientTransfer;
-//import com.dounine.japi.core.IProject;
-//import com.dounine.japi.core.impl.ProjectImpl;
 
 import com.dounine.japi.JapiClient;
 import com.dounine.japi.JapiClientStorage;

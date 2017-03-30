@@ -39,7 +39,7 @@ public class SalesCostInfoSerImpl extends ServiceImpl<SalesCostInfo, SalesCostIn
     @Override
     public List<SalesCostInfoBO> list(SalesCostInfoDTO salesCostInfoDTO) throws SerException {
         List<SalesCostInfo> salesCostInfos = super.findByCis(salesCostInfoDTO);
-        return BeanTransform.copyProperties(salesCostInfos, SalesCostInfoBO.class, true);
+        return BeanTransform.copyProperties(salesCostInfos, SalesCostInfoBO.class);
     }
 
     @Transactional(rollbackFor = SerException.class)
@@ -62,17 +62,21 @@ public class SalesCostInfoSerImpl extends ServiceImpl<SalesCostInfo, SalesCostIn
     public List<SalesCostInfoBO> collect(SalesCostInfoBO salesCostInfoBO)throws SerException{
         SalesCostInfoDTO dto = new SalesCostInfoDTO();
         if(salesCostInfoBO.getTwoSubject() !=null && !salesCostInfoBO.getTwoSubject().equals("")){
-                dto.getConditions().add(Restrict.eq("",salesCostInfoBO.getTwoSubject()));
+                dto.getConditions().add(Restrict.eq("twoSubject",salesCostInfoBO.getTwoSubject()));
         }
         if(salesCostInfoBO.getThreeSubject() !=null && !salesCostInfoBO.getThreeSubject().equals("")){
-            dto.getConditions().add(Restrict.eq("",salesCostInfoBO.getThreeSubject()));
+            dto.getConditions().add(Restrict.eq("threeSubject",salesCostInfoBO.getThreeSubject()));
         }
         if(salesCostInfoBO.getArea() !=null && !salesCostInfoBO.getArea().equals("")){
-            dto.getConditions().add(Restrict.eq("",salesCostInfoBO.getArea()));
+            dto.getConditions().add(Restrict.eq("area",salesCostInfoBO.getArea()));
         }
         if(salesCostInfoBO.getProjectName() !=null && !salesCostInfoBO.getProjectName().equals("")){
-            dto.getConditions().add(Restrict.eq("",salesCostInfoBO.getProjectName()));
+            dto.getConditions().add(Restrict.eq("project",salesCostInfoBO.getProjectName()));
         }
+        if(salesCostInfoBO.getDate() !=null && !salesCostInfoBO.getDate().equals("")){
+            dto.getConditions().add(Restrict.eq("date",salesCostInfoBO.getDate()));
+        }
+
         return BeanTransform.copyProperties(super.findByCis(dto),SalesCostInfoBO.class);
     }
 }

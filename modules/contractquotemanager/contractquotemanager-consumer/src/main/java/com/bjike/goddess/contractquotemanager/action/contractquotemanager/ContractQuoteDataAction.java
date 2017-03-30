@@ -33,6 +33,7 @@ import java.util.List;
  * @Version: [ v1.0.0 ]
  * @Copy: [ com.bjike ]
  */
+
 @RestController
 @RequestMapping("contractquotemanager/contractquotedata")
 public class ContractQuoteDataAction {
@@ -43,6 +44,7 @@ public class ContractQuoteDataAction {
      * 添加合同单价资料信息
      *
      * @param contractQuoteDataTO 合同单价资料信息
+     * @return class ContractQuoteDataVO
      * @throws ActException
      * @Des 返回合同单价资料信息
      * @version v1
@@ -50,7 +52,9 @@ public class ContractQuoteDataAction {
     @PostMapping("v1/add")
     public Result save(@Validated({ADD.class}) ContractQuoteDataTO contractQuoteDataTO) throws ActException {
         try {
-            return ActResult.initialize(contractQuoteDataAPI.save(contractQuoteDataTO));
+            ContractQuoteDataBO contractQuoteDataBO = contractQuoteDataAPI.save(contractQuoteDataTO);
+            ContractQuoteDataVO contractQuoteDataVO = BeanTransform.copyProperties(contractQuoteDataBO,ContractQuoteDataVO.class,true);
+            return ActResult.initialize(contractQuoteDataVO);
         } catch (SerException e) {
             throw new ActException(e.getMessage());
         }
@@ -181,8 +185,6 @@ public class ContractQuoteDataAction {
         } catch (SerException e) {
             throw new ActException(e.getMessage());
         }
-
-
     }
 
     //TODO: yewenbo 2017-03-21 上传附件

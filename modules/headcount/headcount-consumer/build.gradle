@@ -28,7 +28,7 @@ compile(project(":common:common-consumer")){
     exclude group: 'org.slf4j', module: 'slf4j-log4j12'
 }
 
-compile project(":models:headcount:headcount-api")
+compile project(":modules:headcount:headcount-api")
 
 compile("org.springframework.boot:spring-boot-starter-web")
 }

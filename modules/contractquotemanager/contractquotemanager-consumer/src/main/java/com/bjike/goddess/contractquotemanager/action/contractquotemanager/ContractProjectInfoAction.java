@@ -7,6 +7,7 @@ import com.bjike.goddess.common.api.restful.Result;
 import com.bjike.goddess.common.consumer.restful.ActResult;
 import com.bjike.goddess.common.utils.bean.BeanTransform;
 import com.bjike.goddess.contractquotemanager.api.ContractProjectInfoAPI;
+import com.bjike.goddess.contractquotemanager.bo.ContractProjectInfoBO;
 import com.bjike.goddess.contractquotemanager.dto.ContractProjectInfoDTO;
 import com.bjike.goddess.contractquotemanager.dto.ContractQuoteDataDTO;
 import com.bjike.goddess.contractquotemanager.to.ContractProjectInfoTO;
@@ -39,6 +40,7 @@ public class ContractProjectInfoAction {
      * 添加合同项目基本信息
      *
      * @param contractProjectInfoTO 合同项目基本信息
+     * @return class ContractProjectInfoVO
      * @throws ActException
      * @des 合同项目基本信息
      * @version v1
@@ -46,7 +48,9 @@ public class ContractProjectInfoAction {
     @PostMapping("v1/add")
     public Result save(@Validated({ADD.class}) ContractProjectInfoTO contractProjectInfoTO) throws ActException {
         try {
-            return ActResult.initialize(contractProjectInfoAPI.save(contractProjectInfoTO));
+            ContractProjectInfoBO contractProjectInfoBO = contractProjectInfoAPI.save(contractProjectInfoTO);
+           ContractProjectInfoVO contractProjectInfoVO = BeanTransform.copyProperties(contractProjectInfoBO,ContractQuoteDataVO.class,true);
+            return ActResult.initialize(contractProjectInfoVO);
         } catch (SerException e) {
             throw new ActException(e.getMessage());
         }
@@ -54,7 +58,8 @@ public class ContractProjectInfoAction {
 
     /**
      * 获取合同项目基本信息
-     *
+     * @param contractProjectInfoDTO 合同项目基本信息
+     * @return class ContractProjectInfoVO
      * @throws ActException
      * @version v1
      */

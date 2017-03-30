@@ -28,7 +28,7 @@ import java.util.List;
 */
 @CacheConfig(cacheNames ="configurationCurrentSerCache")
 @Service
-public class ConfigurationCurrentSerImpl extends ServiceImpl<ConfigCurrent, ConfigCurrentDTO> implements ConfigCurrentSer {
+public class ConfigCurrentSerImpl extends ServiceImpl<ConfigCurrent, ConfigCurrentDTO> implements ConfigCurrentSer {
        @Transactional(rollbackFor = SerException.class)
        @Override
        public  ConfigCurrentBO save(TransactionContext txContext, ConfigCurrentTO configCurrentTO)throws SerException{

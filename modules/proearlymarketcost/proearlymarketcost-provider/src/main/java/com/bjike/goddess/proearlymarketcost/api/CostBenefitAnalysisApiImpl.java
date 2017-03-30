@@ -43,7 +43,7 @@ public class CostBenefitAnalysisApiImpl implements CostBenefitAnalysisAPI  {
  }
 
     @Override
-    public List<CostBenefitAnalysisBO> collectArea(CostBenefitAnalysisDTO dto)throws SerException{
-        return costBenefitAnalysisSer.collectArea(dto);
+    public List<CostBenefitAnalysisBO> collect(CostBenefitAnalysisDTO dto)throws SerException{
+        return costBenefitAnalysisSer.collect(dto);
  }
  }

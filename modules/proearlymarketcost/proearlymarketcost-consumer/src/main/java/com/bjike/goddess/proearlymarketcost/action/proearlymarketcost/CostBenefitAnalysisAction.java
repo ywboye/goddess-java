@@ -35,16 +35,17 @@ public class CostBenefitAnalysisAction {
      * 添加费用效益分析信息
      *
      * @param costBenefitAnalysisTO 费用效益分析信息
-     * @Des 添加费用效益分析信息
-     * @return class
+     * @return class CostBenefitAnalysisVO
      * @throws ActException
+     * @Des 添加费用效益分析信息
      * @version v1
      */
     @PostMapping("v1/add")
     public Result save(CostBenefitAnalysisTO costBenefitAnalysisTO) throws ActException {
         try {
             CostBenefitAnalysisBO costBenefitAnalysisBO = costBenefitAnalysisAPI.save(costBenefitAnalysisTO);
-            return ActResult.initialize(costBenefitAnalysisBO);
+            CostBenefitAnalysisVO costBenefitAnalysisVO = BeanTransform.copyProperties(costBenefitAnalysisBO, CostBenefitAnalysisVO.class, true);
+            return ActResult.initialize(costBenefitAnalysisVO);
         } catch (SerException e) {
             throw new ActException(e.getMessage());
         }
@@ -56,7 +57,7 @@ public class CostBenefitAnalysisAction {
      * @param dto
      * @return class CostBenefitAnalysisVO
      * @throws ActException
-     *
+     * @version v1
      */
     @GetMapping("v1/list")
     public Result list(CostBenefitAnalysisDTO dto) throws ActException {
@@ -73,17 +74,18 @@ public class CostBenefitAnalysisAction {
 
     /**
      * 编辑费用效益分析信息
+     *
      * @param costBenefitAnalysisTO 费用效益分析信息
      * @throws ActException
      * @version v1
      */
     @PostMapping("v1/edit")
-    public Result edit(CostBenefitAnalysisTO costBenefitAnalysisTO)throws ActException{
-        try{
+    public Result edit(CostBenefitAnalysisTO costBenefitAnalysisTO) throws ActException {
+        try {
             costBenefitAnalysisAPI.update(costBenefitAnalysisTO);
             return ActResult.initialize("edit success");
-        }catch(SerException e){
-            throw  new ActException(e.getMessage());
+        } catch (SerException e) {
+            throw new ActException(e.getMessage());
         }
     }
 
@@ -95,13 +97,31 @@ public class CostBenefitAnalysisAction {
      * @version v1
      */
     @DeleteMapping("v1/delete")
-    public Result delete(@PathVariable String id)throws ActException{
-        try{
-           costBenefitAnalysisAPI.remove(id);
+    public Result delete(@PathVariable String id) throws ActException {
+        try {
+            costBenefitAnalysisAPI.remove(id);
             return ActResult.initialize("delete success");
-        }catch(SerException e){
+        } catch (SerException e) {
             throw new ActException(e.getMessage());
         }
+    }
 
+    /**
+     * 汇总
+     *
+     * @param dto
+     * @return class CostBenefitAnalysisVO
+     * @version v1
+     */
+    @GetMapping("v1/collect")
+    public Result collect(CostBenefitAnalysisDTO dto) throws ActException {
+        try {
+            List<CostBenefitAnalysisBO> costBenefitAnalysisBOs = costBenefitAnalysisAPI.collect(dto);
+            List<CostBenefitAnalysisVO> costBenefitAnalysisVOs = BeanTransform.copyProperties(
+                    costBenefitAnalysisBOs, CostBenefitAnalysisVO.class, true);
+            return ActResult.initialize(costBenefitAnalysisVOs);
+        } catch (SerException e) {
+            throw new ActException(e.getMessage());
+        }
     }
 }

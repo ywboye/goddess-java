@@ -28,7 +28,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("headcount/group")
-public class GroupAct {
+public class GroupInfoAction {
     @Autowired
     private GroupInfoAPI groupInfoAPI;
 

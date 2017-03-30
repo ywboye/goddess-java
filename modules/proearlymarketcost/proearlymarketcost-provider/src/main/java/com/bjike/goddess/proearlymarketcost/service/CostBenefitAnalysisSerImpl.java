@@ -1,5 +1,6 @@
 package com.bjike.goddess.proearlymarketcost.service;
 
+import com.bjike.goddess.common.api.dto.Restrict;
 import com.bjike.goddess.common.api.exception.SerException;
 import com.bjike.goddess.common.jpa.service.ServiceImpl;
 import com.bjike.goddess.common.utils.bean.BeanTransform;
@@ -7,6 +8,7 @@ import com.bjike.goddess.proearlymarketcost.bo.CostBenefitAnalysisBO;
 import com.bjike.goddess.proearlymarketcost.dto.CostBenefitAnalysisDTO;
 import com.bjike.goddess.proearlymarketcost.entity.CostBenefitAnalysis;
 import com.bjike.goddess.proearlymarketcost.to.CostBenefitAnalysisTO;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +31,7 @@ import java.util.List;
 @CacheConfig(cacheNames = "proearlymarketcostSerCache")
 @Service
 public class CostBenefitAnalysisSerImpl extends ServiceImpl<CostBenefitAnalysis, CostBenefitAnalysisDTO> implements CostBenefitAnalysisSer {
+
     @Transactional(rollbackFor = SerException.class)
     @Override
     public CostBenefitAnalysisBO save(CostBenefitAnalysisTO costBenefitAnalysisTO) throws SerException {
@@ -61,15 +64,29 @@ public class CostBenefitAnalysisSerImpl extends ServiceImpl<CostBenefitAnalysis,
     }
 
     @Override
-    public List<CostBenefitAnalysisBO> collectArea(CostBenefitAnalysisDTO dto) {
+    public List<CostBenefitAnalysisBO> collect(CostBenefitAnalysisDTO dto) throws SerException {
+        if (dto == null) {
+            throw new SerException("查询条件为空");
+        }
+        //TODO:  yewenbo 2017-03-28  汇总未做
         List<CostBenefitAnalysisBO> returnList = new ArrayList<>();
-        DateTimeFormatter formate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-
-
-
-
-        return null;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String [] areas = dto.getArea();
+        String yearString = dto.getYear();
+        String monthString = dto.getMonth();
+        String projectName = dto.getProjectName();
+        LocalDate year = LocalDate.parse(yearString);
+        LocalDate month = LocalDate.parse(monthString);
+        List<CostBenefitAnalysisBO> list = new ArrayList<>(0);
+        for(String area : areas){
+            dto.getConditions().add(
+                    Restrict.eq("projectName",projectName));
+            CostBenefitAnalysisBO bo  = new CostBenefitAnalysisBO();
+            bo.setMonth(monthString);
+            bo.setYear(yearString);
+            list.add(bo);
+        }
+        return list;
     }
 
 

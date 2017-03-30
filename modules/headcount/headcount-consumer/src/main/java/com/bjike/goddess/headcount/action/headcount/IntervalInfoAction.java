@@ -30,7 +30,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("headcount/valinfo")
-public class ValInfoAct {
+public class IntervalInfoAction{
     @Autowired
     private IntervalInfoAPI intervalInfoAPI;
 

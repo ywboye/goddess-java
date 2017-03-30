@@ -16,6 +16,6 @@ import org.springframework.stereotype.Service;
 */
 @CacheConfig(cacheNames ="configurationPlanSerCache")
 @Service
-public class ConfigurationPlanSerImpl extends ServiceImpl<ConfigPlan, ConfigPlanDTO> implements ConfigPlanSer {
+public class ConfigPlanSerImpl extends ServiceImpl<ConfigPlan, ConfigPlanDTO> implements ConfigPlanSer {
 
  }

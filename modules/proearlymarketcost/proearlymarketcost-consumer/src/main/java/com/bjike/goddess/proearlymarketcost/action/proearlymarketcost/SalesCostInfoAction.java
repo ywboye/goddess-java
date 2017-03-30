@@ -74,6 +74,7 @@ public class SalesCostInfoAction {
      * 编辑销售费用信息
      *
      * @param salesCostInfoTO 销售费用信息
+     * @des 编辑销售费用信息
      * @throws ActException
      * @version v1
      */
@@ -91,6 +92,7 @@ public class SalesCostInfoAction {
      * 根据id删除销售费用信息
      *
      * @param id 销售信息唯一标识
+     * @Des 根据id删除销售费用信息
      * @throws ActException
      * @version v1
      */
@@ -106,8 +108,9 @@ public class SalesCostInfoAction {
 
     /** 汇总
      * @param salesCostInfoBO
-     * @return
+     * @return class SalesCostInfoVO
      * @throws ActException
+     * @version v1
      */
     @GetMapping("v1/collect")
     public Result collect(SalesCostInfoBO salesCostInfoBO)throws ActException{

@@ -48,7 +48,9 @@ public class ContractNodeStandardAction {
     @PostMapping("v1/add")
     public Result save(@Validated({ADD.class}) ContractNodeStandardTO contractNodeStandardTO) throws ActException {
         try {
-            return ActResult.initialize(contractNodeStandardAPI.save(contractNodeStandardTO));
+            ContractNodeStandardBO contractNodeStandardBO = contractNodeStandardAPI.save(contractNodeStandardTO);
+            ContractNodeStandardVO contractNodeStandardVO = BeanTransform.copyProperties(contractNodeStandardBO,ContractNodeStandardVO.class,true);
+            return ActResult.initialize(contractNodeStandardVO);
         } catch (SerException e) {
             throw new ActException(e.getMessage());
         }
