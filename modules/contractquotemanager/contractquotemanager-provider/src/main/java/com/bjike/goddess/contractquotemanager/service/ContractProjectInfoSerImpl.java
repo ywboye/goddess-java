@@ -15,6 +15,7 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -44,6 +45,21 @@ public class ContractProjectInfoSerImpl extends ServiceImpl<ContractProjectInfo,
         List<ContractProjectInfo> contractProjectInfos = super.findByPage(contractProjectInfoDTO);
         List<ContractProjectInfoBO> contractProjectInfoBOs = BeanTransform.copyProperties(contractProjectInfos, ContractProjectInfoBO.class, true);
         return contractProjectInfoBOs;
+    }
+
+    @Transactional(rollbackFor = SerException.class)
+    @Override
+    public void update(ContractProjectInfoTO contractProjectInfoTO) throws SerException {
+        ContractProjectInfo contractProjectInfo = super.findById(contractProjectInfoTO.getId());
+        BeanTransform.copyProperties(contractProjectInfoTO,contractProjectInfo,true);
+        contractProjectInfo.setModifyTime(LocalDateTime.now());
+        super.update(contractProjectInfo);
+
+    }
+    @Transactional(rollbackFor = SerException.class)
+    @Override
+    public void remove(String id)throws SerException{
+        super.remove(id);
     }
 
 }

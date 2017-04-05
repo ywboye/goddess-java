@@ -1,5 +1,6 @@
 package com.bjike.goddess.capitalpreparation.entity;
 
+import com.bjike.goddess.capitalpreparation.type.ApproveType;
 import com.bjike.goddess.common.api.entity.BaseEntity;
 
 import javax.persistence.Column;
@@ -38,6 +39,7 @@ public class Prorate extends BaseEntity {
      */
     @Column(name = "proportion", nullable = false, columnDefinition = "DECIMAL(4,2)   COMMENT '比例'")
     private Double proportion;
+
 
 
     public LocalDate getDate() {

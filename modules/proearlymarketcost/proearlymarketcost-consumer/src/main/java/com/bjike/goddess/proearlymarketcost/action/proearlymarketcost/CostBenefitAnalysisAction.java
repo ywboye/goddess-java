@@ -35,7 +35,7 @@ public class CostBenefitAnalysisAction {
      * 添加费用效益分析信息
      *
      * @param costBenefitAnalysisTO 费用效益分析信息
-     * @return class CostBenefitAnalysisVO
+     * @return class CostBenefitAnalysisVO 费用效益分析信息
      * @throws ActException
      * @Des 添加费用效益分析信息
      * @version v1
@@ -54,7 +54,7 @@ public class CostBenefitAnalysisAction {
     /**
      * 获取费用效益分析信息
      *
-     * @param dto
+     * @param dto 费用效用分析信息
      * @return class CostBenefitAnalysisVO
      * @throws ActException
      * @version v1
@@ -109,13 +109,14 @@ public class CostBenefitAnalysisAction {
     /**
      * 汇总
      *
-     * @param dto
+     * @param dto 费用效用分析信息
      * @return class CostBenefitAnalysisVO
      * @version v1
      */
     @GetMapping("v1/collect")
     public Result collect(CostBenefitAnalysisDTO dto) throws ActException {
         try {
+            //TODO: yewenbo 2017-03-25 汇总未做
             List<CostBenefitAnalysisBO> costBenefitAnalysisBOs = costBenefitAnalysisAPI.collect(dto);
             List<CostBenefitAnalysisVO> costBenefitAnalysisVOs = BeanTransform.copyProperties(
                     costBenefitAnalysisBOs, CostBenefitAnalysisVO.class, true);

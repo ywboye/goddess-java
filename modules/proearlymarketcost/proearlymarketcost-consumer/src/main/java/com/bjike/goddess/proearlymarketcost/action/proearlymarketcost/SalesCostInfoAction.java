@@ -106,8 +106,10 @@ public class SalesCostInfoAction {
         }
     }
 
-    /** 汇总
-     * @param salesCostInfoBO
+    /**
+     * 汇总
+     *
+     * @param salesCostInfoBO 效用费用信息
      * @return class SalesCostInfoVO
      * @throws ActException
      * @version v1

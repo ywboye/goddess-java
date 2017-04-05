@@ -2,7 +2,7 @@ package com.bjike.goddess.capitalpreparation.vo;
 
 /**
  *
- * 项目分配比例详情
+ * 项目组分配比例详情表现层对象
  *
  * @Author: [yewenbo]
  * @Date: [2017-03-29 11:37]

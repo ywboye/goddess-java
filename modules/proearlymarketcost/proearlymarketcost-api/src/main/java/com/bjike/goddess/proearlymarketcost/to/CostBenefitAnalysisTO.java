@@ -1,148 +1,172 @@
 package com.bjike.goddess.proearlymarketcost.to;
 
 import com.bjike.goddess.common.api.to.BaseTO;
-/**
-* 费用效益分析
-* @Author:			[ yewenbo ]
-* @Date:			[  2017-03-23 03:58 ]
-* @Description:	[ 费用效益分析 ]
-* @Version:		[ v1.0.0 ]
-* @Copy:   		[ com.bjike ]
-*/
-public class CostBenefitAnalysisTO extends BaseTO { 
 
 /**
-* 地区
-*/
- private String  area; 
+ * 费用效益分析
+ *
+ * @Author: [ yewenbo ]
+ * @Date: [ 2017-03-23 03:58 ]
+ * @Description: [ 费用效益分析 ]
+ * @Version: [ v1.0.0 ]
+ * @Copy: [ com.bjike ]
+ */
+public class CostBenefitAnalysisTO extends BaseTO {
 
-/**
-* 年份
-*/
- private String  year; 
+    /**
+     * 地区
+     */
+    private String area;
 
-/**
-* 月份
-*/
- private String  month; 
+    /**
+     * 年份
+     */
+    private String year;
 
-/**
-* 项目名称
-*/
- private String  projectName; 
+    /**
+     * 月份
+     */
+    private String month;
 
-/**
-* 预计收入
-*/
- private Double  expectedRevenue; 
+    /**
+     * 项目名称
+     */
+    private String projectName;
 
-/**
-* 预计市场费
-*/
- private Double  expectedMarketCost; 
+    /**
+     * 预计收入
+     */
+    private Double expectedRevenue;
 
-/**
-* 实际市场费
-*/
- private Double  actualMarketCost; 
+    /**
+     * 预计市场费
+     */
+    private Double expectedMarketCost;
 
-/**
-* 差额
-*/
- private Double  difference; 
+    /**
+     * 实际市场费
+     */
+    private Double actualMarketCost;
 
-/**
-* 预计占比
-*/
- private Double  expectedAccounted; 
+    /**
+     * 差额
+     */
+    private Double difference;
 
-/**
-* 实际占比
-*/
- private Double  actualAccounted; 
+    /**
+     * 预计占比
+     */
+    private Double expectedAccounted;
 
-/**
-* 预警
-*/
- private String  warning; 
+    /**
+     * 实际占比
+     */
+    private Double actualAccounted;
 
-/**
-* 等级评定
-*/
- private String  rating; 
+    /**
+     * 预警
+     */
+    private String warning;
+
+    /**
+     * 等级评定
+     */
+    private String rating;
 
 
+    public String getArea() {
+        return area;
+    }
 
- public String getArea () { 
- return area;
- } 
- public void setArea (String area ) { 
- this.area = area ; 
- } 
- public String getYear () { 
- return year;
- } 
- public void setYear (String year ) { 
- this.year = year ; 
- } 
- public String getMonth () { 
- return month;
- } 
- public void setMonth (String month ) { 
- this.month = month ; 
- } 
- public String getProjectName () { 
- return projectName;
- } 
- public void setProjectName (String projectName ) { 
- this.projectName = projectName ; 
- } 
- public Double getExpectedRevenue () { 
- return expectedRevenue;
- } 
- public void setExpectedRevenue (Double expectedRevenue ) { 
- this.expectedRevenue = expectedRevenue ; 
- } 
- public Double getExpectedMarketCost () { 
- return expectedMarketCost;
- } 
- public void setExpectedMarketCost (Double expectedMarketCost ) { 
- this.expectedMarketCost = expectedMarketCost ; 
- } 
- public Double getActualMarketCost () { 
- return actualMarketCost;
- } 
- public void setActualMarketCost (Double actualMarketCost ) { 
- this.actualMarketCost = actualMarketCost ; 
- } 
- public Double getDifference () { 
- return difference;
- } 
- public void setDifference (Double difference ) { 
- this.difference = difference ; 
- } 
- public Double getExpectedAccounted () { 
- return expectedAccounted;
- } 
- public void setExpectedAccounted (Double expectedAccounted ) { 
- this.expectedAccounted = expectedAccounted ; 
- } 
- public Double getActualAccounted () { 
- return actualAccounted;
- } 
- public void setActualAccounted (Double actualAccounted ) { 
- this.actualAccounted = actualAccounted ; 
- } 
- public String getWarning () { 
- return warning;
- } 
- public void setWarning (String warning ) { 
- this.warning = warning ; 
- } 
- public String getRating () { 
- return rating;
- } 
- public void setRating (String rating ) { 
- this.rating = rating ; 
- } 
- }
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
+
+    public Double getExpectedRevenue() {
+        return expectedRevenue;
+    }
+
+    public void setExpectedRevenue(Double expectedRevenue) {
+        this.expectedRevenue = expectedRevenue;
+    }
+
+    public Double getExpectedMarketCost() {
+        return expectedMarketCost;
+    }
+
+    public void setExpectedMarketCost(Double expectedMarketCost) {
+        this.expectedMarketCost = expectedMarketCost;
+    }
+
+    public Double getActualMarketCost() {
+        return actualMarketCost;
+    }
+
+    public void setActualMarketCost(Double actualMarketCost) {
+        this.actualMarketCost = actualMarketCost;
+    }
+
+    public Double getDifference() {
+        return difference;
+    }
+
+    public void setDifference(Double difference) {
+        this.difference = difference;
+    }
+
+    public Double getExpectedAccounted() {
+        return expectedAccounted;
+    }
+
+    public void setExpectedAccounted(Double expectedAccounted) {
+        this.expectedAccounted = expectedAccounted;
+    }
+
+    public Double getActualAccounted() {
+        return actualAccounted;
+    }
+
+    public void setActualAccounted(Double actualAccounted) {
+        this.actualAccounted = actualAccounted;
+    }
+
+    public String getWarning() {
+        return warning;
+    }
+
+    public void setWarning(String warning) {
+        this.warning = warning;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+}

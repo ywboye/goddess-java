@@ -1,5 +1,6 @@
 package com.bjike.goddess.capitalpreparation.entity;
 
+import com.bjike.goddess.capitalpreparation.type.ApproveType;
 import com.bjike.goddess.common.api.entity.BaseEntity;
 
 import javax.persistence.Column;
@@ -45,6 +46,10 @@ public class CapitalPreparationInfo extends BaseEntity {
     @Column(name = "prepareMoney", nullable = false, columnDefinition = "DECIMAL(10,2)   COMMENT '准备金'")
     private Double prepareMoney;
 
+    /**
+     * 状态
+     */
+    private ApproveType approveType;
     /**
      * 项目分配
      */

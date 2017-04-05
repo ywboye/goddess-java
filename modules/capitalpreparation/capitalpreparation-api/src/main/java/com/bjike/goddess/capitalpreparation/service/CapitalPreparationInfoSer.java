@@ -10,7 +10,7 @@ import com.bjike.goddess.common.api.service.Ser;
 import java.util.List;
 
 /**
- * 资金准备信息业务接口
+ * 资金准备信息业务
  *
  * @Author: [ yewenbo ]
  * @Date: [ 2017-03-28 03:23 ]
@@ -36,9 +36,15 @@ public interface CapitalPreparationInfoSer extends Ser<CapitalPreparationInfo, C
 
     }
 
-    default List<CapitalPreparationInfoBO> collectWeeks(CapitalPreparationInfoDTO dto)throws SerException{
+    default List<CapitalPreparationInfoBO> collectYear(String year) throws SerException {
         return null;
     }
 
+    default List<CapitalPreparationInfoBO> collectMonth(String month) throws SerException {
+        return null;
+    }
 
+    default List<CapitalPreparationInfoBO> coolectWeeks(String weeks) throws SerException {
+        return null;
+    }
 }

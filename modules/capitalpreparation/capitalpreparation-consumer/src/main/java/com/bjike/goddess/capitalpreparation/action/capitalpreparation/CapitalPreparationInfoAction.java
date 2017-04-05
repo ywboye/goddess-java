@@ -30,7 +30,7 @@ import java.util.List;
  * @Copy: [ com.bjike ]
  */
 @RestController
-@RequestMapping("capitalpreparation/ capitalpreparationinfo")
+@RequestMapping("capitalpreparation/capitalpreparationinfo")
 public class CapitalPreparationInfoAction {
 
     @Autowired
@@ -94,8 +94,8 @@ public class CapitalPreparationInfoAction {
      * 根据id删除资金准备信息
      *
      * @param id 资金准备信息唯一标识
-     * @Des 根据id删除资金准备信息
      * @throws ActException
+     * @Des 根据id删除资金准备信息
      * @version v1
      */
     @DeleteMapping("v1/delete")
@@ -109,17 +109,20 @@ public class CapitalPreparationInfoAction {
     }
 
     /**
-     * 周汇总,默认显示本月四周的资金准备详情数据
+     * 年汇总,默认显示当年资金准备详情数据
      *
-     * @param dto 资金准备信息dto
+     * @param year 年份
      * @return class CapitalPreparationInfoVO
      * @throws ActException
      * @version v1
      */
-   @GetMapping("v1/collectWeeks")
-    public Result collectWeeks(CapitalPreparationInfoDTO dto) throws ActException {
+    @GetMapping("v1/collectYear")
+    public Result collectYear(String year) throws ActException {
         try {
-            List<CapitalPreparationInfoBO> bo = capitalPreparationInfoAPI.collectWeeks(dto);
+
+            //TODO：yewenbo 2017-03-31 汇总未做
+
+            List<CapitalPreparationInfoBO> bo = capitalPreparationInfoAPI.collectYear(year);
             List<CapitalPreparationInfoVO> capitalPreparationInfoVOs = BeanTransform.copyProperties(
                     bo, CapitalPreparationInfoVO.class, true);
             return ActResult.initialize(capitalPreparationInfoVOs);
@@ -128,6 +131,23 @@ public class CapitalPreparationInfoAction {
         }
     }
 
-
-
+    /**
+     * 月汇总,默认显示当月的数据详情
+     * @param month 月份
+     * @return class CapitalPreparationInfoVO
+     * @throws ActException
+     * @version v1
+     */
+    @GetMapping("v1/collectMonth")
+    public Result collectMonth(String month)throws ActException{
+        try{
+            //TODO:yewenbo 2017-03-31 汇总未做
+            List<CapitalPreparationInfoBO> bo = capitalPreparationInfoAPI.collectMonth(month);
+            List<CapitalPreparationInfoVO> capitalPreparationInfoVOs = BeanTransform.copyProperties(
+                    bo, CapitalPreparationInfoVO.class, true);
+            return ActResult.initialize(capitalPreparationInfoVOs);
+        }catch(SerException e){
+            throw new ActException(e.getMessage());
+        }
+    }
 }

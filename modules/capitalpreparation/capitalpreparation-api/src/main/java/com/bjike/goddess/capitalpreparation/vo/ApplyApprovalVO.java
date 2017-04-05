@@ -5,107 +5,116 @@ import com.bjike.goddess.capitalpreparation.type.ApproveType;
 import javax.persistence.Column;
 
 /**
-* 申请审批列表表现层对象
-* @Author:			[ yewenbo ]
-* @Date:			[  2017-03-29 02:37 ]
-* @Description:	[ 申请审批列表表现层对象 ]
-* @Version:		[ v1.0.0 ]
-* @Copy:   		[ com.bjike ]
-*/
-public class ApplyApprovalVO { 
+ * 申请审批列表表现层对象
+ *
+ * @Author: [ yewenbo ]
+ * @Date: [ 2017-03-29 02:37 ]
+ * @Description: [ 申请审批列表表现层对象 ]
+ * @Version: [ v1.0.0 ]
+ * @Copy: [ com.bjike ]
+ */
+public class ApplyApprovalVO {
 
-/**
-* id
-*/
- private String  id; 
-/**
-* 名称
-*/
- private String  capitalName; 
+    /**
+     * id
+     */
+    private String id;
+    /**
+     * 名称
+     */
+    private String capitalName;
 
-/**
-* 申请人
-*/
- private String  applicant; 
+    /**
+     * 申请人
+     */
+    private String applicant;
 
-/**
-* 申请时间
-*/
- private String  applyDate;
+    /**
+     * 申请时间
+     */
+    private String applyDate;
 
-/**
-* 审批人
-*/
- private String  approver; 
+    /**
+     * 审批人
+     */
+    private String approver;
 
-/**
-* 审批时间
-*/
- private String  approvalDate;
- /**
-  * 审批状态
-  */
- private ApproveType approveType;
+    /**
+     * 审批时间
+     */
+    private String approvalDate;
+    /**
+     * 审批状态
+     */
+    private ApproveType approveType;
 
-/**
-* 备注
-*/
- private String  remark; 
+    /**
+     * 备注
+     */
+    private String remark;
 
 
+    public String getId() {
+        return id;
+    }
 
- public String getId () { 
- return id;
- } 
- public void setId (String id ) { 
- this.id = id ; 
- } 
- public String getCapitalName () { 
- return capitalName;
- } 
- public void setCapitalName (String capitalName ) { 
- this.capitalName = capitalName ; 
- } 
- public String getApplicant () { 
- return applicant;
- } 
- public void setApplicant (String applicant ) { 
- this.applicant = applicant ; 
- } 
- public String getApprover () {
- return approver;
- } 
- public void setApprover (String approver ) { 
- this.approver = approver ; 
- }
- public String getApplyDate() {
-  return applyDate;
- }
+    public void setId(String id) {
+        this.id = id;
+    }
 
- public void setApplyDate(String applyDate) {
-  this.applyDate = applyDate;
- }
+    public String getCapitalName() {
+        return capitalName;
+    }
 
- public String getApprovalDate() {
-  return approvalDate;
- }
+    public void setCapitalName(String capitalName) {
+        this.capitalName = capitalName;
+    }
 
- public void setApprovalDate(String approvalDate) {
-  this.approvalDate = approvalDate;
- }
+    public String getApplicant() {
+        return applicant;
+    }
 
- public ApproveType getApproveType() {
-  return approveType;
- }
+    public void setApplicant(String applicant) {
+        this.applicant = applicant;
+    }
 
- public void setApproveType(ApproveType approveType) {
-  this.approveType = approveType;
- }
+    public String getApprover() {
+        return approver;
+    }
 
- public String getRemark () {
- return remark;
- } 
- public void setRemark (String remark ) { 
- this.remark = remark ; 
- } 
- }
+    public void setApprover(String approver) {
+        this.approver = approver;
+    }
+
+    public String getApplyDate() {
+        return applyDate;
+    }
+
+    public void setApplyDate(String applyDate) {
+        this.applyDate = applyDate;
+    }
+
+    public String getApprovalDate() {
+        return approvalDate;
+    }
+
+    public void setApprovalDate(String approvalDate) {
+        this.approvalDate = approvalDate;
+    }
+
+    public ApproveType getApproveType() {
+        return approveType;
+    }
+
+    public void setApproveType(ApproveType approveType) {
+        this.approveType = approveType;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+}

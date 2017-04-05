@@ -13,15 +13,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+import sun.util.resources.LocaleData;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 资金准备信息业务实现
  *
  * @Author: [ yewenbo ]
- * @Date: [ 2017-03-28 03:23 ]
+ * @Date: [ 2017-03-29 03:23 ]
  * @Description: [ 资金准备信息业务实现 ]
  * @Version: [ v1.0.0 ]
  * @Copy: [ com.bjike ]
@@ -33,16 +38,16 @@ public class CapitalPreparationInfoSerImpl extends ServiceImpl<CapitalPreparatio
     @Transactional(rollbackFor = SerException.class)
     @Override
     public CapitalPreparationInfoBO save(CapitalPreparationInfoTO to) throws SerException {
-        CapitalPreparationInfo capitalPreparationInfo = BeanTransform.copyProperties(to, CapitalPreparationInfo.class,true);
+        CapitalPreparationInfo capitalPreparationInfo = BeanTransform.copyProperties(to, CapitalPreparationInfo.class, true);
         super.save(capitalPreparationInfo);
         to.setId(capitalPreparationInfo.getId());
-        return BeanTransform.copyProperties(to,CapitalPreparationInfoBO.class,true);
+        return BeanTransform.copyProperties(to, CapitalPreparationInfoBO.class, true);
     }
 
     @Override
     public List<CapitalPreparationInfoBO> list(CapitalPreparationInfoDTO dto) throws SerException {
         List<CapitalPreparationInfo> capitalPreparationInfos = super.findByCis(dto);
-        return BeanTransform.copyProperties(capitalPreparationInfos,CapitalPreparationInfoBO.class);
+        return BeanTransform.copyProperties(capitalPreparationInfos, CapitalPreparationInfoBO.class);
     }
 
     @Transactional(rollbackFor = SerException.class)
@@ -61,19 +66,39 @@ public class CapitalPreparationInfoSerImpl extends ServiceImpl<CapitalPreparatio
         super.remove(capitalPreparationInfo);
     }
 
-    public List<CapitalPreparationInfoBO> collect(String year)throws SerException{
-        CapitalPreparationInfoDTO dto = new CapitalPreparationInfoDTO();
-        dto.getConditions().add(Restrict.eq("year",year));
-
-        return null;
-    }
 
     @Override
-    public List<CapitalPreparationInfoBO> collectWeeks(CapitalPreparationInfoDTO dto)throws SerException{
-        if(dto ==null){
-            throw new SerException("您好!查询条件为空,无法进行查询!");
-        }
-        //TODO: yewenbo 2017-03-29  未做汇总
+    public List<CapitalPreparationInfoBO> collectYear(String year) throws SerException {
+        LocalDate date = LocalDate.parse(year);
+
+        CapitalPreparationInfoDTO dto = new CapitalPreparationInfoDTO();
+        dto.getConditions().add(Restrict.eq("year", date));
+        CapitalPreparationInfoBO bo = new CapitalPreparationInfoBO();
+        List<CapitalPreparationInfoBO> list = new ArrayList<>(0);
+
+        //TODO: yewenbo 2017-03-31  未做汇总
+
         return null;
     }
+    @Override
+    public List<CapitalPreparationInfoBO> collectMonth(String month)throws SerException{
+        LocalDate date = LocalDate.parse(month);
+        CapitalPreparationInfoDTO dto = new CapitalPreparationInfoDTO();
+        dto.getConditions().add(Restrict.eq("month",date));
+
+        //TODO: yewenbo 2017-03-31 未做汇总
+
+        return null;
+    }
+
+    public List<CapitalPreparationInfoBO> collectWeeks(CapitalPreparationInfoDTO dto)throws SerException{
+        if(dto == null){
+            throw new SerException("你好！条件为空，无法进行查询");
+        }
+
+        return null;
+
+    }
+
+
 }

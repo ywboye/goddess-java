@@ -9,6 +9,7 @@ import com.bjike.goddess.common.api.exception.SerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Year;
 import java.util.List;
 
 /**
@@ -47,7 +48,12 @@ public class CapitalPreparationInfoApiImpl implements CapitalPreparationInfoAPI 
     }
 
     @Override
-    public List<CapitalPreparationInfoBO> collectWeeks(CapitalPreparationInfoDTO dto)throws SerException{
-        return capitalPreparationInfoSer.collectWeeks(dto);
+    public List<CapitalPreparationInfoBO> collectYear(String year)throws SerException{
+        return capitalPreparationInfoSer.collectYear(year);
+    }
+
+    @Override
+    public List<CapitalPreparationInfoBO> collectMonth(String month)throws SerException{
+        return capitalPreparationInfoSer.collectMonth(month);
     }
 }

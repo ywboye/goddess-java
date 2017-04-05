@@ -85,8 +85,6 @@ public class ContractQuoteDataSerImpl extends ServiceImpl<ContractQuoteData, Con
         contractQuoteData.setModifyTime(LocalDateTime.now());
         super.update(contractQuoteData);
     }
-
-
     @Override
     public List<ContractQuoteDataBO> collect(ContractQuoteDataDTO dto) throws SerException {
         if(dto ==null){
@@ -94,7 +92,6 @@ public class ContractQuoteDataSerImpl extends ServiceImpl<ContractQuoteData, Con
         }
         if((dto.getArea()==null) || (dto.getArea().length == 0)){
             throw new SerException("您好!地区列表为空,无法进行查询!");
-
         }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String[] areas = dto.getArea();
@@ -113,8 +110,6 @@ public class ContractQuoteDataSerImpl extends ServiceImpl<ContractQuoteData, Con
             bo.setSuitableDateEnd(endDate);
             list.add(bo);
         }
-
-
         return BeanTransform.copyProperties(super.findByCis(dto), ContractQuoteDataBO.class);
     }
     @Override
@@ -126,7 +121,6 @@ public class ContractQuoteDataSerImpl extends ServiceImpl<ContractQuoteData, Con
         if (bo.getProject() != null && !bo.getProject().equals("")) {
             dto.getConditions().add(Restrict.eq("project", bo.getProject()));
         }
-
         return BeanTransform.copyProperties(super.findByCis(dto), ContractQuoteDataBO.class);
     }
 

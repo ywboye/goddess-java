@@ -38,4 +38,15 @@ public class ContractProjectInfoApiImpl implements ContractProjectInfoAPI {
         return contractProjectInfoSer.list(contractProjectInfoDTO);
     }
 
+    @Override
+    public void update(ContractProjectInfoTO contractProjectInfoTO) throws SerException {
+        contractProjectInfoSer.update(contractProjectInfoTO);
+    }
+
+    @Override
+    public void remove(String id) throws SerException {
+        contractProjectInfoSer.remove(id);
+    }
+
+
 }

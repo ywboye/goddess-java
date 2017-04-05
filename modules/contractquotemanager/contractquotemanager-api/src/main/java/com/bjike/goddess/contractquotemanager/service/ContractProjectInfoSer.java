@@ -29,4 +29,13 @@ public interface ContractProjectInfoSer extends Ser<ContractProjectInfo, Contrac
     default List<ContractProjectInfoBO> list(ContractProjectInfoDTO contractProjectInfoDTO) throws SerException {
         return null;
     }
+
+    default void update(ContractProjectInfoTO contractProjectInfoTO)throws SerException{
+
+    }
+
+    default void remove(String id)throws SerException{
+
+    }
+
 }

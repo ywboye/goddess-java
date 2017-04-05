@@ -41,7 +41,8 @@ public class CapitalContrastAction {
     /**
      * 添加资金准备对比分析
      *
-     * @param capitalContrastTO
+     * @param capitalContrastTO 资金准备对比分析信息to
+     * @des 添加资金准备对比分析
      * @return class capitalContrastVO
      * @throws ActException
      * @version v1
@@ -60,7 +61,8 @@ public class CapitalContrastAction {
     /**
      * 获取所有资金准备对比分析信息
      *
-     * @param capitalContrastDTO
+     * @param capitalContrastDTO 资金准备对比分析信息dto
+     * @des 获取所有的资金准备对比分析信息
      * @return class capitalContrastVO
      * @throws ActException
      * @version v1
@@ -78,6 +80,7 @@ public class CapitalContrastAction {
     /**
      * 编辑资金准备对比分析
      * @param capitalContrastTO
+     * @des 编辑资金准备对比分析信息
      * @throws ActException
      * @version v1
      */
@@ -92,12 +95,13 @@ public class CapitalContrastAction {
     }
 
     /**
-     *根据id删除资金准备对比信息
-     * @param id
+     * 根据id删除资金准备对比分析信息
+     * @param id 资金准备对比分析的唯一标识
+     * @des 根据id删除资金准备对比分析信
      * @throws ActException
      * @version v1
      */
-    @DeleteMapping("v1/delete")
+    @DeleteMapping("v1/delete/{id}")
     public Result delete(@PathVariable String id)throws ActException{
         try{
             capitalContrastAPI.remove(id);

@@ -35,6 +35,7 @@ public class ApplyApprovalAction {
     /**
      * 添加申请审批列表信息
      * @param applyApprovalTO
+     * @des 添加申请审批列表信息
      * @return class ApplyApprovalVO
      * @throws ActException
      * @version v1
@@ -55,6 +56,7 @@ public class ApplyApprovalAction {
      *
      * @param applyApprovalDTO 申请审批列表信息
      * @return class applyApprovalVO
+     * @des 获取所有申请审批列表信息
      * @throws ActException
      * @version v1
      */
@@ -70,7 +72,8 @@ public class ApplyApprovalAction {
 
     /**
      * 编辑申请审批列表信息
-     * @param applyApprovalTO
+     * @param applyApprovalTO 申请审批列表信息
+     * @des 编辑申请审批列表信息
      * @throws ActException
      * @version v1
      */
@@ -85,7 +88,7 @@ public class ApplyApprovalAction {
     }
 
     /**
-     * 拒绝
+     * 更改状态 拒绝
      *
      * @param id id
      * @des 根据id标识为拒绝状态
@@ -102,7 +105,7 @@ public class ApplyApprovalAction {
     }
 
     /**
-     * 通过
+     * 更改状态 通过
      *
      * @param id id
      * @des 根据id标识为通过状态
@@ -119,12 +122,15 @@ public class ApplyApprovalAction {
     }
 
     /**
+     *
      * 根据id删除申请审批列表信息
+     *
      * @param id 申请审批列表信息唯一标识
+     * @des 根据id删除申请审批列表信息
      * @throws ActException
      * @version v1
      */
-    @DeleteMapping("v1/delete")
+    @DeleteMapping("v1/delete/{id}")
     public Result delete(@PathVariable String id)throws ActException{
         try{
             applyApprovalAPI.remove(id);

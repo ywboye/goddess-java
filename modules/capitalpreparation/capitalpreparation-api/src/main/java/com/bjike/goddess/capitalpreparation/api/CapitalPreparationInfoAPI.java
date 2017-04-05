@@ -34,8 +34,13 @@ public interface CapitalPreparationInfoAPI {
 
     }
 
-    default List<CapitalPreparationInfoBO> collectWeeks(CapitalPreparationInfoDTO dto)throws SerException{
+    default List<CapitalPreparationInfoBO> collectYear(String year)throws SerException{
         return null;
     }
+
+    default List<CapitalPreparationInfoBO> collectMonth(String month)throws SerException{
+        return null;
+    }
+
     
 }

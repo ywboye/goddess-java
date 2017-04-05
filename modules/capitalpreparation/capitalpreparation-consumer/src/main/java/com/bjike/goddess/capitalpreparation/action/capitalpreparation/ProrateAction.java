@@ -89,7 +89,7 @@ public class ProrateAction {
      * @throws ActException
      * @version v1
      */
-    @DeleteMapping("v1/delete")
+    @DeleteMapping("v1/delete/{id}")
     public Result delete(@PathVariable String id)throws ActException{
         try{
             prorateAPI.remove(id);
