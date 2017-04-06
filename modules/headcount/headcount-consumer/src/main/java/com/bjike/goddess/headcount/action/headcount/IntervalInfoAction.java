@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
+ * 薪资区间信息
+ *
  * @Author: [yewenbo]
  * @Date: [2017-03-14 10:03]
  * @Description: [ ]
@@ -40,6 +42,7 @@ public class IntervalInfoAction{
      * @param intervalInfoTO 薪资区间信息
      * @Des 返回薪资区间信息
      * @throws ActException
+     * @version v1
      */
     @PostMapping("v1/add")
     public Result save(@Validated({ADD.class}) IntervalInfoTO intervalInfoTO)throws ActException{
@@ -52,6 +55,7 @@ public class IntervalInfoAction{
 
     /**
      * 获取薪资区间信息
+     * @return class IntervalInfoVO
      * @version v1
      * @throws ActException
      */

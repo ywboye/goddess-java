@@ -1,9 +1,7 @@
 package com.bjike.goddess.headcount.api;
 
 import com.bjike.goddess.common.api.exception.SerException;
-import com.bjike.goddess.common.api.service.Ser;
 import com.bjike.goddess.headcount.bo.ConfigCurrentBO;
-import com.bjike.goddess.headcount.entity.ConfigCurrent;
 import com.bjike.goddess.headcount.service.ConfigCurrentSer;
 import com.bjike.goddess.headcount.to.ConfigCurrentTO;
 import org.mengyun.tcctransaction.api.TransactionContext;

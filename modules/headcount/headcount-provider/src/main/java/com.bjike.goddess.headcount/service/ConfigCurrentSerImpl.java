@@ -1,15 +1,12 @@
 package com.bjike.goddess.headcount.service;
 
 import com.bjike.goddess.common.api.exception.SerException;
-import com.bjike.goddess.common.api.service.Ser;
 import com.bjike.goddess.common.jpa.service.ServiceImpl;
 import com.bjike.goddess.common.utils.bean.BeanTransform;
 import com.bjike.goddess.headcount.bo.ConfigCurrentBO;
 import com.bjike.goddess.headcount.dto.ConfigCurrentDTO;
 import com.bjike.goddess.headcount.entity.ConfigCurrent;
-import com.bjike.goddess.headcount.entity.plancost.GroupInfo;
 import com.bjike.goddess.headcount.to.ConfigCurrentTO;
-import com.bjike.goddess.headcount.to.GroupInfoTO;
 import org.mengyun.tcctransaction.api.TransactionContext;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;

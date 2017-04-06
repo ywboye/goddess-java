@@ -33,7 +33,7 @@ public class SkillsManageAction {
 
     /**
      * 添加技能管理等级配置
-     * @param skillsManageTO
+     * @param skillsManageTO 技能管理等级配置信息
      * @return class SkillsManageVO
      * @throws ActException
      * @version v1
@@ -51,7 +51,7 @@ public class SkillsManageAction {
 
     /**
      * 获取所有技能管理等级配置信息
-     * @param skillsManageDTO
+     * @param skillsManageDTO 技能管理等级配置信息
      * @return class SkillsManageVO
      * @throws ActException
      * @version v1
@@ -87,7 +87,7 @@ public class SkillsManageAction {
 
     /**
      * 根据id删除技能管理等级配置信息
-     * @param id
+     * @param id id
      * @throws ActException
      * @version v1
      */
@@ -100,4 +100,5 @@ public class SkillsManageAction {
             throw new ActException(e.getMessage());
         }
     }
+
 }
