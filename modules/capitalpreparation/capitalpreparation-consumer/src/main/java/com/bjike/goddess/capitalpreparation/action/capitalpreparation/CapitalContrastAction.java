@@ -2,16 +2,9 @@ package com.bjike.goddess.capitalpreparation.action.capitalpreparation;
 
 import com.bjike.goddess.capitalpreparation.api.CapitalContrastAPI;
 import com.bjike.goddess.capitalpreparation.bo.CapitalContrastBO;
-import com.bjike.goddess.capitalpreparation.bo.CapitalPreparationInfoBO;
-import com.bjike.goddess.capitalpreparation.bo.ProrateBO;
 import com.bjike.goddess.capitalpreparation.dto.CapitalContrastDTO;
-import com.bjike.goddess.capitalpreparation.dto.ProrateDTO;
-import com.bjike.goddess.capitalpreparation.entity.CapitalContrast;
 import com.bjike.goddess.capitalpreparation.to.CapitalContrastTO;
-import com.bjike.goddess.capitalpreparation.to.CapitalPreparationInfoTO;
-import com.bjike.goddess.capitalpreparation.to.ProrateTO;
 import com.bjike.goddess.capitalpreparation.vo.CapitalContrastVO;
-import com.bjike.goddess.capitalpreparation.vo.ProrateVO;
 import com.bjike.goddess.common.api.exception.ActException;
 import com.bjike.goddess.common.api.exception.SerException;
 import com.bjike.goddess.common.api.restful.Result;
@@ -20,7 +13,6 @@ import com.bjike.goddess.common.utils.bean.BeanTransform;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -43,7 +35,7 @@ public class CapitalContrastAction {
      *
      * @param capitalContrastTO 资金准备对比分析信息to
      * @des 添加资金准备对比分析
-     * @return class capitalContrastVO
+     * @return class CapitalContrastVO
      * @throws ActException
      * @version v1
      */
@@ -63,7 +55,7 @@ public class CapitalContrastAction {
      *
      * @param capitalContrastDTO 资金准备对比分析信息dto
      * @des 获取所有的资金准备对比分析信息
-     * @return class capitalContrastVO
+     * @return class CapitalContrastVO
      * @throws ActException
      * @version v1
      */
@@ -79,7 +71,7 @@ public class CapitalContrastAction {
 
     /**
      * 编辑资金准备对比分析
-     * @param capitalContrastTO
+     * @param capitalContrastTO 资金准备对比分析信息
      * @des 编辑资金准备对比分析信息
      * @throws ActException
      * @version v1

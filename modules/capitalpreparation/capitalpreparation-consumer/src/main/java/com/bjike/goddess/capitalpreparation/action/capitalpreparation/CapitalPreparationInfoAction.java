@@ -59,7 +59,7 @@ public class CapitalPreparationInfoAction {
      * 获取资金准备信息
      *
      * @param dto 资金准备信息dto
-     * @return class capitalPreparationInfoVO
+     * @return class CapitalPreparationInfoVO
      * @throws ActException
      * @version v1
      */
@@ -109,7 +109,7 @@ public class CapitalPreparationInfoAction {
     }
 
     /**
-     * 年汇总,默认显示当年资金准备详情数据
+     * 年汇总默认显示当年资金准备详情数据
      *
      * @param year 年份
      * @return class CapitalPreparationInfoVO
@@ -132,7 +132,7 @@ public class CapitalPreparationInfoAction {
     }
 
     /**
-     * 月汇总,默认显示当月的数据详情
+     * 月汇总默认显示当月的数据详情
      * @param month 月份
      * @return class CapitalPreparationInfoVO
      * @throws ActException

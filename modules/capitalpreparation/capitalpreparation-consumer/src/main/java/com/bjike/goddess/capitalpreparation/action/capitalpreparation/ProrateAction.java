@@ -8,7 +8,6 @@ import com.bjike.goddess.capitalpreparation.vo.ProrateVO;
 import com.bjike.goddess.common.api.exception.ActException;
 import com.bjike.goddess.common.api.exception.SerException;
 import com.bjike.goddess.common.api.restful.Result;
-import com.bjike.goddess.common.api.service.Ser;
 import com.bjike.goddess.common.consumer.restful.ActResult;
 import com.bjike.goddess.common.utils.bean.BeanTransform;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +33,8 @@ public class ProrateAction {
 
     /**
      * 添加比例分配
-     * @param prorateTO
-     * @return class prorateVO
+     * @param prorateTO 比例分配信息
+     * @return class ProrateVO
      * @throws ActException
      * @version v1
      */
@@ -52,8 +51,8 @@ public class ProrateAction {
 
     /**
      * 获取所有比例分配信息
-     * @param prorateDTO
-     * @return class prorateVO
+     * @param prorateDTO 比例分配信息
+     * @return class ProrateVO
      * @throws ActException
      * @version v1
      */
@@ -69,7 +68,7 @@ public class ProrateAction {
 
     /**
      * 编辑比例分配信息
-     * @param prorateTO
+     * @param prorateTO 比例分配信息
      * @throws ActException
      * @version v1
      */

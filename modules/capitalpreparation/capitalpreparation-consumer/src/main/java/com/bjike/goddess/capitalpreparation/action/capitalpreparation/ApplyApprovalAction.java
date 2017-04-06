@@ -4,7 +4,6 @@ import com.bjike.goddess.capitalpreparation.api.ApplyApprovalAPI;
 import com.bjike.goddess.capitalpreparation.bo.ApplyApprovalBO;
 import com.bjike.goddess.capitalpreparation.dto.ApplyApprovalDTO;
 import com.bjike.goddess.capitalpreparation.to.ApplyApprovalTO;
-import com.bjike.goddess.capitalpreparation.to.ProrateTO;
 import com.bjike.goddess.capitalpreparation.vo.ApplyApprovalVO;
 import com.bjike.goddess.common.api.exception.ActException;
 import com.bjike.goddess.common.api.exception.SerException;
@@ -14,7 +13,6 @@ import com.bjike.goddess.common.utils.bean.BeanTransform;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -34,7 +32,7 @@ public class ApplyApprovalAction {
 
     /**
      * 添加申请审批列表信息
-     * @param applyApprovalTO
+     * @param applyApprovalTO 申请审批列表信息
      * @des 添加申请审批列表信息
      * @return class ApplyApprovalVO
      * @throws ActException
@@ -52,11 +50,9 @@ public class ApplyApprovalAction {
     }
 
     /**
-     *获取申请审批列表
-     *
+     * 获取所有申请审批列表信息
      * @param applyApprovalDTO 申请审批列表信息
-     * @return class applyApprovalVO
-     * @des 获取所有申请审批列表信息
+     * @return class ApplyApprovalVO
      * @throws ActException
      * @version v1
      */
@@ -70,8 +66,10 @@ public class ApplyApprovalAction {
         }
     }
 
+
     /**
      * 编辑申请审批列表信息
+     *
      * @param applyApprovalTO 申请审批列表信息
      * @des 编辑申请审批列表信息
      * @throws ActException
@@ -88,7 +86,7 @@ public class ApplyApprovalAction {
     }
 
     /**
-     * 更改状态 拒绝
+     * 更改状态为拒绝
      *
      * @param id id
      * @des 根据id标识为拒绝状态
@@ -105,7 +103,7 @@ public class ApplyApprovalAction {
     }
 
     /**
-     * 更改状态 通过
+     * 更改状态为通过
      *
      * @param id id
      * @des 根据id标识为通过状态
@@ -122,11 +120,8 @@ public class ApplyApprovalAction {
     }
 
     /**
-     *
      * 根据id删除申请审批列表信息
-     *
      * @param id 申请审批列表信息唯一标识
-     * @des 根据id删除申请审批列表信息
      * @throws ActException
      * @version v1
      */
